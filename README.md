@@ -1,5 +1,5 @@
 # EmbeddedSystem
-Team repository for 2024 Spring semester Embedded System class
+Team repository for 2024 Spring semester Embedded System class (Group 6)
 
 Download alexnet pth file from
 https://drive.google.com/file/d/15BUQ27b8QxSZSBkN9p2tbpwHU9rPYo3N/view?usp=drive_link
