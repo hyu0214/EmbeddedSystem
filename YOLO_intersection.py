@@ -28,7 +28,8 @@ def draw_boxes(image, pred, classes, colors):
 
             color = colors[label].tolist()
             cls_name = classes[label]
-
+            print(abs(x1-x2)*abs(y2-y1))
+            print(y1,y2)
             cv2.rectangle(image, (x1, y1), (x2, y2), color, 2)
             cv2.putText(image, f"{cls_name} {score}", (x1, max(0, y1 - 10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1, cv2.LINE_AA)
 
@@ -127,6 +128,8 @@ class Camera:
         
             try:
             	
+                logging.getLogger().setLevel(logging.WARNING)
+             
                 while True:
                
                     t0 = time.time()
@@ -215,7 +218,7 @@ if __name__ == '__main__':
     if args.yolo_model_file is not None:
         from ultralytics import YOLO
         # HACK: TensorRT YOLO model doesn't have classes info.
-        classes = YOLO("./best_intersection.pt", task='detect').names
+        classes = YOLO("./best_intersection.pt", task='detect', verbose=False).names
 
         model = YOLO(args.yolo_model_file, task='detect')
         cam.set_model(model, classes)
